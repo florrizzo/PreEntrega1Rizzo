@@ -34,3 +34,8 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+
+.card-product{
+  display: flex;
+}

@@ -1,9 +1,9 @@
-import React from "react";
-
-const ItemListContainer = ({ greeting }) => {
+import data from "../data.json";
+import ItemList from "./ItemList";
+const ItemListContainer = () => {  
   return (
     <div>
-      <h1>{greeting}</h1>
+      <ItemList products={data}/>
     </div>
   );
 };
