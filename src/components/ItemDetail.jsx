@@ -1,3 +1,4 @@
+import React from "react";
 import {
   Center,
   Card,
@@ -9,12 +10,10 @@ import {
   Divider,
   CardFooter,
   Heading,
-  ButtonGroup
+  ButtonGroup,
 } from "@chakra-ui/react";
-import { Link } from "react-router-dom";
-import React from "react";
 
-const Item = ({ id, nombre, categoria, stock }) => {
+const ItemDetail = ({ product }) => {
   return (
     <div className="card-product">
       <Card maxW="sm">
@@ -25,28 +24,21 @@ const Item = ({ id, nombre, categoria, stock }) => {
             borderRadius="lg"
           />
           <Stack mt="6" spacing="3">
-            <Heading size="md">{nombre}</Heading>
-            <Text>
-            Categoria: {categoria}
-            </Text>
+            <Heading size="md">{product[0].nombre}</Heading>
+            <Text>Detalles: {product[0].descripcion}</Text>
+            <Text>Categoria: {product[0].categoria}</Text>
             <Text color="blue.600" fontSize="2xl">
-            Stock: {stock}
+              Stock: {product[0].stock}
             </Text>
           </Stack>
         </CardBody>
         <Divider />
         <CardFooter>
-          <ButtonGroup spacing="2">
-            <Link path to={`/item/${id}`}>
-            <Button variant="solid" colorScheme="blue">
-              Detalle
-            </Button>
-            </Link>
-          </ButtonGroup>
+          <ButtonGroup spacing="2"></ButtonGroup>
         </CardFooter>
       </Card>
     </div>
   );
 };
 
-export default Item;
+export default ItemDetail;
