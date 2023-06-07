@@ -3,7 +3,6 @@ import { Container } from "@chakra-ui/react";
 import Item from "./Item";
 
 const ItemList = ({ products }) => {
-  console.log(products)
   return (
     <>
       <Container maxW="container.sm" className="main-catalogue">

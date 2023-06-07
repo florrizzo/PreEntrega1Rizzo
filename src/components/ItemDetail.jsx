@@ -1,4 +1,5 @@
 import React from "react";
+import ItemCount from "./ItemCount";
 import {
   Center,
   Card,
@@ -35,6 +36,8 @@ const ItemDetail = ({ product }) => {
         <Divider />
         <CardFooter>
           <ButtonGroup spacing="2"></ButtonGroup>
+          <ItemCount stock={product[0].stock}/>
+          <Button>Add to Cart</Button>
         </CardFooter>
       </Card>
     </div>
