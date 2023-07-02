@@ -13,8 +13,13 @@ import {
   Heading,
   ButtonGroup,
 } from "@chakra-ui/react";
+import { useContext } from "react";
+import { CartContext } from "../context/cartContext";
+import { useState } from "react";
 
 const ItemDetail = ({ product }) => {
+  const {addToCart} = useContext(CartContext)
+  const [count, setCount] = useState(0);
   return (
     <div className="card-product">
       <Card maxW="sm">
@@ -36,8 +41,9 @@ const ItemDetail = ({ product }) => {
         <Divider />
         <CardFooter>
           <ButtonGroup spacing="2"></ButtonGroup>
-          <ItemCount stock={product[0].stock}/>
-          <Button>Add to Cart</Button>
+          <ItemCount stock={product[0].stock} count={count} setCount={setCount} />
+          <Button onClick={() => addToCart(product[0].nombre, count)}>Add to Cart</Button>
+
         </CardFooter>
       </Card>
     </div>
