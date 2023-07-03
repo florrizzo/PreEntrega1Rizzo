@@ -29,13 +29,13 @@ const ItemDetail = ({ product }) => {
     <div className="card-product">
       <div className="card-product">
         <Card maxW="sm">
-          <CardBody>
+          <CardBody className="card-body">
             <Image
               src={product.imagen}
               alt="Imagen del producto"
               borderRadius="lg"
             />
-            <Stack mt="6" spacing="3">
+            <Stack mt="6" spacing="3" className="text-content">
               <Heading size="md">{product.nombre}</Heading>
               <Text>Detalles: {product.descripcion}</Text>
               <Text>Categoria: {product.categoria}</Text>
@@ -48,17 +48,16 @@ const ItemDetail = ({ product }) => {
             </Stack>
           </CardBody>
           <Divider />
-          <CardFooter>
-            <ButtonGroup spacing="2"></ButtonGroup>
-            <ItemCount
-              stock={product.stock}
-              count={count}
-              setCount={setCount}
-            />
+          <CardFooter className="card-footer">
+            <ButtonGroup spacing="2">
+              <ItemCount stock={product.stock} count={count} setCount={setCount} />
+            </ButtonGroup>
+          </CardFooter>
+          <div className="button-container">
             <Button onClick={() => addToCart(product.nombre, count, product.precio)}>
               Add to Cart
             </Button>
-          </CardFooter>
+          </div>
         </Card>
       </div>
     </div>

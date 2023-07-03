@@ -21,16 +21,16 @@ import { ChevronDownIcon } from "@chakra-ui/icons";
 
 const NavBar = () => {
   return (
-    <Flex minWidth="max-content" alignItems="center" bg="blue.500" gap="2">
+    <Flex minWidth="max-content" alignItems="center" bg="blue.500" gap="2" h="80px">
       <Box p="2">
         <Link to="/">
-          <Heading size="md">Rizzo E-commerce</Heading>
+          <Heading size="md" className="brand">Rizzo E-commerce</Heading>
         </Link>
       </Box>
       <Spacer />
 
       <Menu>
-        <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>
+        <MenuButton bg="blue.100" as={Button} rightIcon={<ChevronDownIcon />}>
           Categorias
         </MenuButton>
         <MenuList>
