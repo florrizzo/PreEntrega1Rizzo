@@ -39,3 +39,12 @@ button:focus-visible {
 .card-product{
   display: flex;
 }
+
+.item-count-container {
+  display: flex;
+  align-items: center;
+}
+
+.item-count-container button {
+  margin: 0 5px;
+}

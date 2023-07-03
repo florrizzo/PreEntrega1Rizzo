@@ -1,23 +1,23 @@
 import React from "react";
-import { Container } from "@chakra-ui/react";
+import { Container, Flex } from "@chakra-ui/react";
 import Item from "./Item";
 
 const ItemList = ({ products }) => {
   return (
     <>
-      <Container maxW="container.sm" className="main-catalogue">
-        {products.map((products) => {
+      <Flex flexWrap="wrap" justifyContent="center">
+        {products.map((product) => {
           return (
             <Item
-              key={products.id}
-              id={products.id}
-              nombre={products.nombre}
-              categoria={products.categoria}
-              stock={products.stock}
+              key={product.id}
+              id={product.id}
+              nombre={product.nombre}
+              categoria={product.categoria}
+              stock={product.stock}
             />
           );
         })}
-      </Container>
+      </Flex>
     </>
   );
 };

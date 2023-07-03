@@ -14,7 +14,7 @@ const ItemCount = ({ stock, count, setCount }) => {
   };
   const reset = () => setCount(0);
   return (
-    <div>
+    <div className="item-count-container">
       <button onClick={restar}>-</button>
       <p>{count}</p>
       <button onClick={sumar}>+</button>
