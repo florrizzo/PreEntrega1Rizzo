@@ -12,8 +12,10 @@ Esta creado con React, y almacenado en una base de datos de Firebase.
 
 _Rutas:_
 
-_"/"_
+_"/"_ - Se visualiza un set de productos disponibles para la compra.
 
-_"/category/:category"_
+_"/category/:category"_ - Se visualiza el set de productos filtrados según la categoría elegida.
 
-_
+_"/item/:id"_ - Se visualiza el detalle del producto elegido (foto, descripción, stock, precio, selector de cantidad y botón para agregar al carrito)
+
+_"/cart"_ - Se visualiza el carrito con los productos seleccionados junto a la cantidad y subtotal por producto, y el precio total de la compra. Además hay un formulario para que el cliente llene sus datos, y al clickear comprar, se devuelve el id de la compra (id con que se guarda en Firebase)
