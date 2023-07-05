@@ -1,12 +1,20 @@
-import { useState } from "react";
 import React, { useContext } from "react";
 import { CartContext } from "../context/cartContext";
 import Form from "./Form";
-import { Card, CardBody, Container, Box } from "@chakra-ui/react";
+import {
+  Card,
+  CardBody,
+  Container,
+  Box,
+  Button,
+  Divider,
+  Stack,
+  Heading,
+  Text,
+} from "@chakra-ui/react";
 
 const Cart = () => {
-  const [nombre, setNombre] = useState("");
-  const { cart } = useContext(CartContext);
+  const { cart, deleteFromCart } = useContext(CartContext);
 
   if (cart.length === 0) {
     return (
@@ -26,23 +34,28 @@ const Cart = () => {
     <Container maxW="80%" mt={8}>
       <Card>
         <CardBody>
-          <h2>Carrito:</h2>
-          <ul>
+          <Stack mt="6" spacing="3" className="text-content">
+            <Heading size="md">Tu Carrito</Heading>
             {cart.map((item, index) => (
-              <li key={index}>
-                <span>{item.name}</span> - <span>{item.cantidad}</span> -{" "}
-                <span>Subtotal: ${item.precio * item.cantidad}</span>{" "}
-                <span>
-                  <button>Eliminar</button>
-                </span>
-              </li>
+              <React.Fragment key={index}>
+                <Text>
+                  <span>{item.name}</span> - <span>{item.cantidad}</span> -{" "}
+                  <span>Subtotal: ${item.precio * item.cantidad}</span>{" "}
+                  <span>
+                    <Button onClick={() => deleteFromCart(item.name)}>
+                      Eliminar
+                    </Button>
+                  </span>
+                </Text>
+              </React.Fragment>
             ))}
-          </ul>
-          <h2>Total: ${total}</h2> {/* Mostrar el total */}
+            <Text>Total: ${total.toFixed(2)}</Text>
+          </Stack>
         </CardBody>
       </Card>
 
       <Box mt={4}>
+        <Divider />
         <Form />
       </Box>
     </Container>

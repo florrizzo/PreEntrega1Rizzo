@@ -1,7 +1,13 @@
 import React, { useContext, useState } from "react";
 import { collection, getFirestore, addDoc } from "firebase/firestore";
 import { CartContext } from "../context/cartContext";
-import { FormControl, Input, FormLabel, FormHelperText } from "@chakra-ui/react";
+import {
+  FormControl,
+  FormLabel,
+  FormHelperText,
+  Button,
+  Input,
+} from "@chakra-ui/react";
 
 const Form = () => {
   const [orderId, setOrderId] = useState(null);
@@ -11,6 +17,7 @@ const Form = () => {
   const { cart } = useContext(CartContext);
 
   const db = getFirestore();
+  const ordersCollection = collection(db, "orden");
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -24,24 +31,41 @@ const Form = () => {
       setShowOrderId(true); // Mostrar el número de orden después de enviar el formulario
     });
   };
-  const ordersCollection = collection(db, "orden");
 
   return (
     <div>
       <FormControl>
         <form onSubmit={handleSubmit}>
-          <FormLabel>Nombre completo</FormLabel>
-          <Input type="text" required onChange={(e) => setName(e.target.value)} />
-          <FormLabel>Email</FormLabel>
-          <Input type="email" required onChange={(e) => setEmail(e.target.value)} />
+          <FormLabel htmlFor="name">Nombre completo</FormLabel>
+          <Input
+            type="text"
+            id="name"
+            required
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+
+          <FormLabel htmlFor="email">Email</FormLabel>
+          <Input
+            type="email"
+            id="email"
+            required
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+
           <FormHelperText>
             Completa tus datos para realizar la compra.
           </FormHelperText>
-          <input type="submit" value="Enviar compra" className="btn-submit" />
+          <Button type="submit" colorScheme="blue" mt="4">
+            Enviar compra
+          </Button>
         </form>
       </FormControl>
 
-      {showOrderId && <p>Se envió tu compra con el número de orden: {orderId}</p>}
+      {showOrderId && (
+        <p>Se envió tu compra con el número de orden: {orderId}</p>
+      )}
     </div>
   );
 };

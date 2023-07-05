@@ -26,7 +26,6 @@ const ItemDetailContainer = () => {
 
     fetchProduct();
   }, [id]);
-  console.log(product);
   return <ItemDetail product={product} />;
 };
 

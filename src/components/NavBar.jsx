@@ -1,61 +1,58 @@
-import { Link } from "react-router-dom";
 import React from "react";
-import CartWidget from "./CartWidget";
+import { Link } from "react-router-dom";
 import {
   Flex,
   Spacer,
   Box,
   Heading,
-  ButtonGroup,
   Button,
   Menu,
   MenuButton,
   MenuList,
   MenuItem,
-  MenuItemOption,
-  MenuGroup,
-  MenuOptionGroup,
-  MenuDivider,
 } from "@chakra-ui/react";
 import { ChevronDownIcon } from "@chakra-ui/icons";
+import CartWidget from "./CartWidget";
 
 const NavBar = () => {
   return (
-    <Flex minWidth="max-content" alignItems="center" bg="blue.500" gap="2" h="80px">
+    <Flex minWidth="max-content" alignItems="center" bg="blue.500" h="80px">
       <Box p="2">
         <Link to="/">
-          <Heading size="md" className="brand">Rizzo E-commerce</Heading>
+          <Heading size="md" className="brand">
+            Rizzo E-commerce
+          </Heading>
         </Link>
       </Box>
       <Spacer />
-
       <Menu>
-        <MenuButton bg="blue.100" as={Button} rightIcon={<ChevronDownIcon />}>
+        <MenuButton
+          bg="blue.100"
+          as={Button}
+          rightIcon={<ChevronDownIcon />}
+          _hover={{ bg: "blue.200" }}
+        >
           Categorias
         </MenuButton>
         <MenuList>
-          <Link to={`/category/gryffindor`}>
-            <MenuItem>Gryffindor</MenuItem>
-          </Link>
-          <Link to={`/category/hufflepuff`}>
-            <MenuItem>Hufflepuff</MenuItem>
-          </Link>
-          <Link to={`/category/ravenclaw`}>
-            <MenuItem>Ravenclaw</MenuItem>
-          </Link>
-          <Link to={`/category/slytherin`}>
-            <MenuItem>Slytherin</MenuItem>
-          </Link>
+          <MenuItem as={Link} to="/category/gryffindor">
+            Gryffindor
+          </MenuItem>
+          <MenuItem as={Link} to="/category/hufflepuff">
+            Hufflepuff
+          </MenuItem>
+          <MenuItem as={Link} to="/category/ravenclaw">
+            Ravenclaw
+          </MenuItem>
+          <MenuItem as={Link} to="/category/slytherin">
+            Slytherin
+          </MenuItem>
         </MenuList>
       </Menu>
       <Spacer />
-      <ButtonGroup gap="1">
-        <Button colorScheme="teal">
-          <Link to="/cart">
-            <CartWidget />
-          </Link>
-        </Button>
-      </ButtonGroup>
+      <Button colorScheme="teal" as={Link} to="/cart">
+        <CartWidget />
+      </Button>
     </Flex>
   );
 };

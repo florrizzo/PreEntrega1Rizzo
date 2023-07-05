@@ -1,8 +1,10 @@
+/* Estilos para h1 */
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
 }
 
+/* Estilos para botón */
 button {
   border-radius: 8px;
   border: 1px solid transparent;
@@ -14,14 +16,17 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 }
+
 button:hover {
   border-color: #646cff;
 }
+
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+/* Estilos en modo de color claro */
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
@@ -35,7 +40,7 @@ button:focus-visible {
   }
 }
 
-
+/* Estilos para contenedor de item-count */
 .item-count-container {
   display: flex;
   align-items: center;
@@ -45,27 +50,32 @@ button:focus-visible {
   margin: 0 5px;
 }
 
+/* Estilos para card-body */
 .card-body {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
+/* Estilos para text-content */
 .text-content {
   text-align: justify;
 }
 
+/* Estilos para card-footer */
 .card-footer {
   display: flex;
   justify-content: center;
 }
 
+/* Estilos para button-container */
 .button-container {
   margin-top: 10px;
   text-align: center;
 }
 
-.btn-submit{
+/* Estilos para botón de clase .btn-submit */
+.btn-submit {
   background-color: rgb(26, 80, 128);
   color: white;
   border-radius: 8px;
@@ -78,6 +88,7 @@ button:focus-visible {
   transition: background-color 0.25s;
 }
 
-.brand.brand:hover{
-  color: rgb(53, 51, 51)
+/* Estilos para enlace en clase .brand.brand */
+.brand.brand:hover {
+  color: rgb(53, 51, 51);
 }

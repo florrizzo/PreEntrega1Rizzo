@@ -1,26 +1,38 @@
-import { useState } from "react";
+import React, { useState } from "react";
 
 const ItemCount = ({ stock, count, setCount }) => {
-  
-  const sumar = () => {
+  const increment = () => {
     if (count < stock) {
       setCount(count + 1);
     }
   };
-  const restar = () => {
+
+  const decrement = () => {
     if (count > 0) {
       setCount(count - 1);
     }
   };
-  const reset = () => setCount(0);
-  return (
-    <div className="item-count-container">
-      <button onClick={restar}>-</button>
-      <p>{count}</p>
-      <button onClick={sumar}>+</button>
 
-      <button onClick={reset}>Reset</button>
-    </div>
+  const reset = () => {
+    setCount(0);
+  };
+
+  const isIncrementDisabled = count >= stock;
+  const isDecrementDisabled = count <= 0;
+
+  return (
+    <>
+      <div className="item-count-container">
+        <button onClick={decrement} disabled={isDecrementDisabled}>
+          -
+        </button>
+        <p>{count}</p>
+        <button onClick={increment} disabled={isIncrementDisabled}>
+          +
+        </button>
+        <button onClick={reset}>Reset</button>
+      </div>
+    </>
   );
 };
 
